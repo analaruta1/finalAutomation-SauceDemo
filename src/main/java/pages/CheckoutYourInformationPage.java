@@ -20,25 +20,38 @@ public class CheckoutYourInformationPage {
     @FindBy(id="continue")
     WebElement continueButton;
 
+    @FindBy(css="[data-test='error']")
+    WebElement errorMessage;
+
     public CheckoutYourInformationPage(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
     public void setFirstNameTextBox(String firstName){
-        firstNameTextBox.sendKeys(firstName);
+        typeIfNotEmpty(firstNameTextBox, firstName);
     }
 
     public void setLastNameTextBox(String lastName){
-        lastNameTextBox.sendKeys(lastName);
+        typeIfNotEmpty(lastNameTextBox, lastName);
     }
 
     public void setZipCodeTextBox(String zipCode){
-        zipCodeTextBox.sendKeys(zipCode);
+        typeIfNotEmpty(zipCodeTextBox, zipCode);
     }
 
     public void clickOnContinueButton(){
         continueButton.click();
     }
 
+    public String getErrorMessage(){
+        return errorMessage.getText();
+    }
+
+    // Las celdas vacías del DataTable llegan como null o "": en ese caso el campo se deja vacío
+    private void typeIfNotEmpty(WebElement textBox, String value){
+        if(value != null && !value.isBlank()){
+            textBox.sendKeys(value);
+        }
+    }
 }

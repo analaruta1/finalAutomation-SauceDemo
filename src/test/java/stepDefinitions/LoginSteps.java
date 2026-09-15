@@ -32,4 +32,14 @@ public class LoginSteps {
         Assertions.assertEquals(message, loginPage.getErrorMessage());
     }
 
+    @Then("The login page should be displayed")
+    public void verifyLoginPageIsDisplayed(){
+        Assertions.assertTrue(loginPage.isLoginButtonDisplayed());
+    }
+
+    @And("No protected content should be visible")
+    public void verifyNoProtectedContent(){
+        Assertions.assertFalse(loginPage.isProtectedContentDisplayed(),
+                "Protected content is visible without an active session");
+    }
 }
