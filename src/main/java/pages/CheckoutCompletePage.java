@@ -19,4 +19,8 @@ public class CheckoutCompletePage {
     public String getCheckoutCompleteMessage(){
         return checkoutCompleteMessage.getText();
     }
+
+    public boolean isCheckoutCompletePageOpen(){
+        return driver.getCurrentUrl().contains("checkout-complete");
+    }
 }
