@@ -2,6 +2,9 @@ package stepDefinitions;
 
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
+import io.cucumber.java.Scenario;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import utils.DriverManager;
 
 public class Hooks {
@@ -16,8 +19,18 @@ public class Hooks {
         }
     }
 
+    // Si el escenario falla, adjunta una captura de pantalla al reporte
+    // y luego cierra el navegador
     @After
-    public void afterScenario(){
-        DriverManager.quitDriver();
+    public void afterScenario(Scenario scenario){
+        try {
+            if (scenario.isFailed()) {
+                byte[] screenshot = ((TakesScreenshot) DriverManager.getDriver().driver)
+                        .getScreenshotAs(OutputType.BYTES);
+                scenario.attach(screenshot, "image/png", scenario.getName());
+            }
+        } finally {
+            DriverManager.quitDriver();
+        }
     }
 }
