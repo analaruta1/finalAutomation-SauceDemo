@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary"></span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">sept 14, 2026 11:15:30 p. m.</span></a>
+<a href="#"><span class="badge badge-primary">sept 15, 2026 12:37:46 a. m.</span></a>
 </li>
 </ul>
 </div>
@@ -45,6 +45,11 @@
 <li class="nav-item dropdown" onclick="toggleView('test-view')">
 <a id="nav-test" class="dropdown-toggle" href="#">
 <span class="ico"><i class="fa fa-list"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('exception-view')">
+<a id="nav-exception" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-bug"></i></span>
 </a>
 </li>
 <li class="nav-item dropdown" onclick="toggleView('category-view')">
@@ -72,6 +77,7 @@
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
 <ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
 <a class="dropdown-item" status="pass" href="#"><span>Pass</span><span class="status success"></span></a>
+<a class="dropdown-item" status="fail" href="#"><span>Fail</span><span class="status danger"></span></a>
 <div class="dropdown-divider"></div>
 <a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
 </ul>
@@ -79,7 +85,7 @@
 <li class="dropdown">
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tag"></i></a>
 <ul id="tag-toggle" class="dropdown-menu dropdown-md p-v-0">
-<a class="dropdown-item" href="#">@run</a>
+<a class="dropdown-item" href="#">@purchaseSummary</a><a class="dropdown-item" href="#">@run</a><a class="dropdown-item" href="#">@checkoutInformation</a><a class="dropdown-item" href="#">@sideMenu</a><a class="dropdown-item" href="#">@accessWithoutSession</a>
 </ul>
 </li>
 </ul>
@@ -90,9 +96,9 @@
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">Checkout a product</p>
+            <p class="name">Access to protected pages without an active session</p>
             <p class="text-sm">
-              <span>23:15:30</span> / <span>00:00:10:820</span>
+              <span>00:37:47</span> / <span>00:00:24:792</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -100,10 +106,10 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">Checkout a product</h5>
-<span class='badge badge-success'>09.14.2026 23:15:30</span>
-<span class='badge badge-danger'>09.14.2026 23:15:41</span>
-<span class='badge badge-default'>00:00:10:820</span>
+<h5 class="test-status text-pass">Access to protected pages without an active session</h5>
+<span class='badge badge-success'>09.15.2026 00:37:47</span>
+<span class='badge badge-danger'>09.15.2026 00:38:12</span>
+<span class='badge badge-default'>00:00:24:792</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -116,7 +122,183 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>User can checkout a purchase</div>
+        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>A user without session cannot open <page></div>
+      </div>
+    </div>
+        <div class="scenario_outline collapse">
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="3"><span class="badge log pass-bg mr-2">Pass</span>A user without session cannot open /inventory.html</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given I am in sauce demo web page</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I navigate directly to "/inventory.html"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then The login page should be displayed</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And A error message that says "Epic sadface: You can only access '/inventory.html' when you are logged in." should be displayed</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And No protected content should be visible</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="15"><span class="badge log pass-bg mr-2">Pass</span>A user without session cannot open /inventory-item.html</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given I am in sauce demo web page</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I navigate directly to "/inventory-item.html?id=4"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then The login page should be displayed</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And A error message that says "Epic sadface: You can only access '/inventory-item.html' when you are logged in." should be displayed</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And No protected content should be visible</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="27"><span class="badge log pass-bg mr-2">Pass</span>A user without session cannot open /cart.html</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given I am in sauce demo web page</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I navigate directly to "/cart.html"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then The login page should be displayed</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And A error message that says "Epic sadface: You can only access '/cart.html' when you are logged in." should be displayed</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And No protected content should be visible</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="39"><span class="badge log pass-bg mr-2">Pass</span>A user without session cannot open /checkout-step-two.html</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given I am in sauce demo web page</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I navigate directly to "/checkout-step-two.html"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then The login page should be displayed</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And A error message that says "Epic sadface: You can only access '/checkout-step-two.html' when you are logged in." should be displayed</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And No protected content should be visible</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+  </div>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="51"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Checkout a product</p>
+            <p class="text-sm">
+              <span>00:38:12</span> / <span>00:00:09:888</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">Checkout a product</h5>
+<span class='badge badge-success'>09.15.2026 00:38:12</span>
+<span class='badge badge-danger'>09.15.2026 00:38:21</span>
+<span class='badge badge-default'>00:00:09:888</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=51</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+<div class="m-t-10 m-l-5"></div>
+</div>
+</div>
+<div class="accordion mt-4">
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="52"><span class="badge log pass-bg mr-2">Pass</span>User can checkout a purchase</div>
       </div>
     </div>
         <div class="collapse">
@@ -194,14 +376,14 @@
 </div>
           </div>
         </li>
-        <li class="test-item"  status="pass" test-id="30"
+        <li class="test-item"  status="pass" test-id="80"
           author=""
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">Home Page tests</p>
+            <p class="name">Checkout information validations</p>
             <p class="text-sm">
-              <span>23:15:41</span> / <span>00:00:51:527</span>
+              <span>00:38:21</span> / <span>00:00:38:781</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -209,11 +391,11 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">Home Page tests</h5>
-<span class='badge badge-success'>09.14.2026 23:15:41</span>
-<span class='badge badge-danger'>09.14.2026 23:16:33</span>
-<span class='badge badge-default'>00:00:51:527</span>
-&middot; <span class='uri-anchor badge badge-default'>#test-id=30</span>
+<h5 class="test-status text-pass">Checkout information validations</h5>
+<span class='badge badge-success'>09.15.2026 00:38:21</span>
+<span class='badge badge-danger'>09.15.2026 00:39:00</span>
+<span class='badge badge-default'>00:00:38:781</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=80</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
 <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
@@ -225,14 +407,338 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="31"><span class="badge log pass-bg mr-2">Pass</span>Verify that all the products are displayed in the home page</div>
+        <div class="node" id="81"><span class="badge log pass-bg mr-2">Pass</span>The checkout cannot continue when <case></div>
       </div>
     </div>
         <div class="scenario_outline collapse">
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="32"><span class="badge log pass-bg mr-2">Pass</span>Verify that all the products are displayed in the home page</div>
+                  <div class="node" id="82"><span class="badge log pass-bg mr-2">Pass</span>The checkout cannot continue when the first name is empty</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given I am in sauce demo web page</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I set the user name text box with "standard_user"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I set the password text box with "secret_sauce"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I click on the login button</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I add the product "Sauce Labs Onesie" to the cart</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I click on the cart icon</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I click on the checkout button</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then The page title should be "Checkout: Your Information"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I fill the checkout information with</span>
+      <div><table class='markup-table table '><tr><td></td><td>Perez</td><td>0001</td></tr></table>
+      </div>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I click on the continue button</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then The checkout error message "Error: First Name is required" should be displayed</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And The page title should be "Checkout: Your Information"</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="108"><span class="badge log pass-bg mr-2">Pass</span>The checkout cannot continue when the last name is empty</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given I am in sauce demo web page</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I set the user name text box with "standard_user"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I set the password text box with "secret_sauce"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I click on the login button</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I add the product "Sauce Labs Onesie" to the cart</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I click on the cart icon</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I click on the checkout button</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then The page title should be "Checkout: Your Information"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I fill the checkout information with</span>
+      <div><table class='markup-table table '><tr><td>Ana</td><td></td><td>0001</td></tr></table>
+      </div>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I click on the continue button</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then The checkout error message "Error: Last Name is required" should be displayed</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And The page title should be "Checkout: Your Information"</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="134"><span class="badge log pass-bg mr-2">Pass</span>The checkout cannot continue when the postal code is empty</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given I am in sauce demo web page</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I set the user name text box with "standard_user"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I set the password text box with "secret_sauce"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I click on the login button</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I add the product "Sauce Labs Onesie" to the cart</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I click on the cart icon</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I click on the checkout button</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then The page title should be "Checkout: Your Information"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I fill the checkout information with</span>
+      <div><table class='markup-table table '><tr><td>Ana</td><td>Perez</td><td></td></tr></table>
+      </div>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I click on the continue button</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then The checkout error message "Error: Postal Code is required" should be displayed</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And The page title should be "Checkout: Your Information"</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="160"><span class="badge log pass-bg mr-2">Pass</span>The checkout cannot continue when all the fields are empty</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given I am in sauce demo web page</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I set the user name text box with "standard_user"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I set the password text box with "secret_sauce"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I click on the login button</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I add the product "Sauce Labs Onesie" to the cart</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I click on the cart icon</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I click on the checkout button</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then The page title should be "Checkout: Your Information"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I fill the checkout information with</span>
+      <div><table class='markup-table table '><tr><td></td><td></td><td></td></tr></table>
+      </div>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I click on the continue button</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then The checkout error message "Error: First Name is required" should be displayed</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And The page title should be "Checkout: Your Information"</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+  </div>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="186"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Home Page tests</p>
+            <p class="text-sm">
+              <span>00:39:00</span> / <span>00:00:53:277</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">Home Page tests</h5>
+<span class='badge badge-success'>09.15.2026 00:39:00</span>
+<span class='badge badge-danger'>09.15.2026 00:39:53</span>
+<span class='badge badge-default'>00:00:53:277</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=186</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+<div class="m-t-10 m-l-5"></div>
+</div>
+</div>
+<div class="accordion mt-4">
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="187"><span class="badge log pass-bg mr-2">Pass</span>Verify that all the products are displayed in the home page</div>
+      </div>
+    </div>
+        <div class="scenario_outline collapse">
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="188"><span class="badge log pass-bg mr-2">Pass</span>Verify that all the products are displayed in the home page</div>
                 </div>
               </div>
               <div class="card-body mt-3 collapse">
@@ -271,7 +777,7 @@
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="46"><span class="badge log pass-bg mr-2">Pass</span>Verify that all the products are displayed in the home page</div>
+                  <div class="node" id="202"><span class="badge log pass-bg mr-2">Pass</span>Verify that all the products are displayed in the home page</div>
                 </div>
               </div>
               <div class="card-body mt-3 collapse">
@@ -310,7 +816,7 @@
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="60"><span class="badge log pass-bg mr-2">Pass</span>Verify that all the products are displayed in the home page</div>
+                  <div class="node" id="216"><span class="badge log pass-bg mr-2">Pass</span>Verify that all the products are displayed in the home page</div>
                 </div>
               </div>
               <div class="card-body mt-3 collapse">
@@ -349,7 +855,7 @@
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="74"><span class="badge log pass-bg mr-2">Pass</span>Verify that all the products are displayed in the home page</div>
+                  <div class="node" id="230"><span class="badge log pass-bg mr-2">Pass</span>Verify that all the products are displayed in the home page</div>
                 </div>
               </div>
               <div class="card-body mt-3 collapse">
@@ -390,14 +896,14 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="88"><span class="badge log pass-bg mr-2">Pass</span>Verify that products can be added/removed to the cart</div>
+        <div class="node" id="244"><span class="badge log pass-bg mr-2">Pass</span>Verify that products can be added/removed to the cart</div>
       </div>
     </div>
         <div class="scenario_outline collapse">
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="89"><span class="badge log pass-bg mr-2">Pass</span>Verify that products can be added/removed to the cart</div>
+                  <div class="node" id="245"><span class="badge log pass-bg mr-2">Pass</span>Verify that products can be added/removed to the cart</div>
                 </div>
               </div>
               <div class="card-body mt-3 collapse">
@@ -451,7 +957,7 @@
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="109"><span class="badge log pass-bg mr-2">Pass</span>Verify that products can be added/removed to the cart</div>
+                  <div class="node" id="265"><span class="badge log pass-bg mr-2">Pass</span>Verify that products can be added/removed to the cart</div>
                 </div>
               </div>
               <div class="card-body mt-3 collapse">
@@ -505,7 +1011,7 @@
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="129"><span class="badge log pass-bg mr-2">Pass</span>Verify that products can be added/removed to the cart</div>
+                  <div class="node" id="285"><span class="badge log pass-bg mr-2">Pass</span>Verify that products can be added/removed to the cart</div>
                 </div>
               </div>
               <div class="card-body mt-3 collapse">
@@ -559,7 +1065,7 @@
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="149"><span class="badge log pass-bg mr-2">Pass</span>Verify that products can be added/removed to the cart</div>
+                  <div class="node" id="305"><span class="badge log pass-bg mr-2">Pass</span>Verify that products can be added/removed to the cart</div>
                 </div>
               </div>
               <div class="card-body mt-3 collapse">
@@ -615,14 +1121,14 @@
 </div>
           </div>
         </li>
-        <li class="test-item"  status="pass" test-id="169"
+        <li class="test-item"  status="pass" test-id="325"
           author=""
           tag=""
           device="">
           <div class="test-detail">
             <p class="name">Login Sauce Demo App</p>
             <p class="text-sm">
-              <span>23:16:33</span> / <span>00:00:34:321</span>
+              <span>00:39:53</span> / <span>00:00:34:013</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -631,10 +1137,10 @@
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-pass">Login Sauce Demo App</h5>
-<span class='badge badge-success'>09.14.2026 23:16:33</span>
-<span class='badge badge-danger'>09.14.2026 23:17:07</span>
-<span class='badge badge-default'>00:00:34:321</span>
-&middot; <span class='uri-anchor badge badge-default'>#test-id=169</span>
+<span class='badge badge-success'>09.15.2026 00:39:53</span>
+<span class='badge badge-danger'>09.15.2026 00:40:28</span>
+<span class='badge badge-default'>00:00:34:013</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=325</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
 <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
@@ -646,7 +1152,7 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="170"><span class="badge log pass-bg mr-2">Pass</span>Login into Sauce Demo with valid credentials</div>
+        <div class="node" id="326"><span class="badge log pass-bg mr-2">Pass</span>Login into Sauce Demo with valid credentials</div>
       </div>
     </div>
         <div class="collapse">
@@ -682,7 +1188,7 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="182"><span class="badge log pass-bg mr-2">Pass</span>Login into Sauce Demo with invalid credentials</div>
+        <div class="node" id="338"><span class="badge log pass-bg mr-2">Pass</span>Login into Sauce Demo with invalid credentials</div>
       </div>
     </div>
         <div class="collapse">
@@ -718,14 +1224,14 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="194"><span class="badge log pass-bg mr-2">Pass</span>Login into Sauce Demo with valid credentials</div>
+        <div class="node" id="350"><span class="badge log pass-bg mr-2">Pass</span>Login into Sauce Demo with valid credentials</div>
       </div>
     </div>
         <div class="scenario_outline collapse">
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="195"><span class="badge log pass-bg mr-2">Pass</span>Login into Sauce Demo with valid credentials</div>
+                  <div class="node" id="351"><span class="badge log pass-bg mr-2">Pass</span>Login into Sauce Demo with valid credentials</div>
                 </div>
               </div>
               <div class="card-body mt-3 collapse">
@@ -759,7 +1265,7 @@
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="207"><span class="badge log pass-bg mr-2">Pass</span>Login into Sauce Demo with valid credentials</div>
+                  <div class="node" id="363"><span class="badge log pass-bg mr-2">Pass</span>Login into Sauce Demo with valid credentials</div>
                 </div>
               </div>
               <div class="card-body mt-3 collapse">
@@ -795,14 +1301,14 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="219"><span class="badge log pass-bg mr-2">Pass</span>Login into Sauce Demo with invalid credentials</div>
+        <div class="node" id="375"><span class="badge log pass-bg mr-2">Pass</span>Login into Sauce Demo with invalid credentials</div>
       </div>
     </div>
         <div class="scenario_outline collapse">
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="220"><span class="badge log pass-bg mr-2">Pass</span>Login into Sauce Demo with invalid credentials</div>
+                  <div class="node" id="376"><span class="badge log pass-bg mr-2">Pass</span>Login into Sauce Demo with invalid credentials</div>
                 </div>
               </div>
               <div class="card-body mt-3 collapse">
@@ -836,7 +1342,7 @@
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="232"><span class="badge log pass-bg mr-2">Pass</span>Login into Sauce Demo with invalid credentials</div>
+                  <div class="node" id="388"><span class="badge log pass-bg mr-2">Pass</span>Login into Sauce Demo with invalid credentials</div>
                 </div>
               </div>
               <div class="card-body mt-3 collapse">
@@ -870,7 +1376,7 @@
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="244"><span class="badge log pass-bg mr-2">Pass</span>Login into Sauce Demo with invalid credentials</div>
+                  <div class="node" id="400"><span class="badge log pass-bg mr-2">Pass</span>Login into Sauce Demo with invalid credentials</div>
                 </div>
               </div>
               <div class="card-body mt-3 collapse">
@@ -906,6 +1412,439 @@
 </div>
           </div>
         </li>
+        <li class="test-item"  status="pass" test-id="412"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Purchase summary and cancellation</p>
+            <p class="text-sm">
+              <span>00:40:28</span> / <span>00:00:22:077</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">Purchase summary and cancellation</h5>
+<span class='badge badge-success'>09.15.2026 00:40:28</span>
+<span class='badge badge-danger'>09.15.2026 00:40:50</span>
+<span class='badge badge-default'>00:00:22:077</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=412</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+<div class="m-t-10 m-l-5"></div>
+</div>
+</div>
+<div class="accordion mt-4">
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="413"><span class="badge log pass-bg mr-2">Pass</span>The purchase summary shows the right products and amounts</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="stepDefinitions.CommonSteps.goToSauceDemoPage()">
+                <span>Given I am in sauce demo web page</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.LoginSteps.setUserName(java.lang.String)">
+                <span>When I set the user name text box with "standard_user"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.LoginSteps.setPassword(java.lang.String)">
+                <span>And I set the password text box with "secret_sauce"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.LoginSteps.clickOnLoginButton()">
+                <span>And I click on the login button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.HomeSteps.addProductsToCart(io.cucumber.datatable.DataTable)">
+                <span>And I add the following products to the cart</span>
+      <div><table class='markup-table table '><tr><td>Sauce Labs Backpack</td></tr><tr><td>Sauce Labs Bike Light</td></tr><tr><td>Sauce Labs Bolt T-Shirt</td></tr></table>
+      </div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.HomeSteps.verifyCartIconAmount(java.lang.String)">
+                <span>Then I verify that the cart icon displays "3"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.HomeSteps.clickOnCartIcon()">
+                <span>When I click on the cart icon</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.YourCartSteps.clickOnCheckoutButton()">
+                <span>And I click on the checkout button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.CheckoutYourInformationSteps.fillCheckoutInformationForm(io.cucumber.datatable.DataTable)">
+                <span>And I fill the checkout information with</span>
+      <div><table class='markup-table table '><tr><td>Ana</td><td>Perez</td><td>0001</td></tr></table>
+      </div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.CheckoutYourInformationSteps.clickOnContinueButton()">
+                <span>And I click on the continue button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.CommonSteps.verifyPageTitle(java.lang.String)">
+                <span>Then The page title should be "Checkout: Overview"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.CheckoutOverviewSteps.verifyProductsInOverview(io.cucumber.datatable.DataTable)">
+                <span>Then The checkout overview should list the following products</span>
+      <div><table class='markup-table table '><tr><td>Sauce Labs Backpack</td><td>29.99</td></tr><tr><td>Sauce Labs Bike Light</td><td>9.99</td></tr><tr><td>Sauce Labs Bolt T-Shirt</td><td>15.99</td></tr></table>
+      </div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.CheckoutOverviewSteps.verifyItemTotal()">
+                <span>And The item total should be the sum of the product prices</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.CheckoutOverviewSteps.verifyTax(int)">
+                <span>And The tax should be 8% of the item total</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.CheckoutOverviewSteps.verifyTotal()">
+                <span>And The total should be the item total plus tax</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="445"><span class="badge log pass-bg mr-2">Pass</span>User can cancel the purchase from the checkout overview</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="stepDefinitions.CommonSteps.goToSauceDemoPage()">
+                <span>Given I am in sauce demo web page</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.LoginSteps.setUserName(java.lang.String)">
+                <span>When I set the user name text box with "standard_user"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.LoginSteps.setPassword(java.lang.String)">
+                <span>And I set the password text box with "secret_sauce"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.LoginSteps.clickOnLoginButton()">
+                <span>And I click on the login button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.HomeSteps.addProductsToCart(io.cucumber.datatable.DataTable)">
+                <span>And I add the following products to the cart</span>
+      <div><table class='markup-table table '><tr><td>Sauce Labs Backpack</td></tr><tr><td>Sauce Labs Bike Light</td></tr><tr><td>Sauce Labs Bolt T-Shirt</td></tr></table>
+      </div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.HomeSteps.verifyCartIconAmount(java.lang.String)">
+                <span>Then I verify that the cart icon displays "3"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.HomeSteps.clickOnCartIcon()">
+                <span>When I click on the cart icon</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.YourCartSteps.clickOnCheckoutButton()">
+                <span>And I click on the checkout button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.CheckoutYourInformationSteps.fillCheckoutInformationForm(io.cucumber.datatable.DataTable)">
+                <span>And I fill the checkout information with</span>
+      <div><table class='markup-table table '><tr><td>Ana</td><td>Perez</td><td>0001</td></tr></table>
+      </div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.CheckoutYourInformationSteps.clickOnContinueButton()">
+                <span>And I click on the continue button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.CommonSteps.verifyPageTitle(java.lang.String)">
+                <span>Then The page title should be "Checkout: Overview"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.CheckoutOverviewSteps.clickOnCancelButton()">
+                <span>When I click on the cancel button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.CommonSteps.verifyPageTitle(java.lang.String)">
+                <span>Then The page title should be "Products"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.CheckoutCompleteSteps.verifyPurchaseWasNotCompleted()">
+                <span>And The purchase confirmation should not be displayed</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.HomeSteps.verifyCartIconAmount(java.lang.String)">
+                <span>And I verify that the cart icon displays "3"</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="fail" test-id="477"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Side menu navigation</p>
+            <p class="text-sm">
+              <span>00:40:50</span> / <span>00:00:23:524</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">Side menu navigation</h5>
+<span class='badge badge-success'>09.15.2026 00:40:50</span>
+<span class='badge badge-danger'>09.15.2026 00:41:13</span>
+<span class='badge badge-default'>00:00:23:524</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=477</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+<div class="m-t-10 m-l-5"></div>
+</div>
+</div>
+<div class="accordion mt-4">
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="478"><span class="badge log fail-bg mr-2">Fail</span>The side menu shows all the navigation options</div>
+          <div class="status-avatar float-right mr-4">
+            <i class="fa fa-paperclip"></i>
+          </div>
+      </div>
+    </div>
+        <div class="">
+          <div class="card-body">
+              <div class="step pass-bg" title="stepDefinitions.CommonSteps.goToSauceDemoPage()">
+                <span>Given I am in sauce demo web page</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.LoginSteps.setUserName(java.lang.String)">
+                <span>When I set the user name text box with "standard_user"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.LoginSteps.setPassword(java.lang.String)">
+                <span>And I set the password text box with "secret_sauce"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.LoginSteps.clickOnLoginButton()">
+                <span>And I click on the login button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.HomeSteps.verifyHomePageIsDisplayed()">
+                <span>Then The home pages should be displayed</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.SideMenuSteps.openSideMenu()">
+                <span>When I open the side menu</span>
+      <div>
+      </div>
+              </div>
+              <div class="step fail-bg" title="stepDefinitions.SideMenuSteps.verifySideMenuOptions(io.cucumber.datatable.DataTable)">
+                <span>Then The side menu should display the following options</span>
+      <div><table class='markup-table table '><tr><td>All Items</td></tr><tr><td>About</td></tr><tr><td>Logout</td></tr><tr><td>Reset App State</td></tr></table>
+      </div>
+      <div>
+        <textarea disabled class="code-block">org.opentest4j.AssertionFailedError: expected: <[All Items, About, Logout, Reset App State]> but was: <[All Items, Dynamic Catalog, About, Logout, Reset App State]>
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1199)
+	at stepDefinitions.SideMenuSteps.verifySideMenuOptions(SideMenuSteps.java:24)
+	at ✽.The side menu should display the following options(file:///C:/Users/anael/Desktop/CERTIFICACION%20II%20-%202026/Proyecto%20final/automation-saucedemo/src/test/resources/side_menu.feature:14)
+</textarea>
+      
+      </div>
+              </div>
+              <div class="step pass-bg" title="AFTER">
+                <span>stepDefinitions.Hooks.afterScenario(io.cucumber.java.Scenario)</span>
+      <div>The side menu shows all the navigation options
+          <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='test-output/embedded1.png' src="test-output/embedded1.png">
+  
+    
+
+    </div></div>
+</div>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="494"><span class="badge log pass-bg mr-2">Pass</span>User can go back to the catalog with All Items</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="stepDefinitions.CommonSteps.goToSauceDemoPage()">
+                <span>Given I am in sauce demo web page</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.LoginSteps.setUserName(java.lang.String)">
+                <span>When I set the user name text box with "standard_user"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.LoginSteps.setPassword(java.lang.String)">
+                <span>And I set the password text box with "secret_sauce"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.LoginSteps.clickOnLoginButton()">
+                <span>And I click on the login button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.HomeSteps.verifyHomePageIsDisplayed()">
+                <span>Then The home pages should be displayed</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.HomeSteps.clickOnCartIcon()">
+                <span>When I click on the cart icon</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.CommonSteps.verifyPageTitle(java.lang.String)">
+                <span>Then The page title should be "Your Cart"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.SideMenuSteps.openSideMenu()">
+                <span>When I open the side menu</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.SideMenuSteps.selectSideMenuOption(java.lang.String)">
+                <span>And I select the "All Items" option from the side menu</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.CommonSteps.verifyPageTitle(java.lang.String)">
+                <span>Then The page title should be "Products"</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="516"><span class="badge log pass-bg mr-2">Pass</span>User can log out from the side menu</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="stepDefinitions.CommonSteps.goToSauceDemoPage()">
+                <span>Given I am in sauce demo web page</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.LoginSteps.setUserName(java.lang.String)">
+                <span>When I set the user name text box with "standard_user"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.LoginSteps.setPassword(java.lang.String)">
+                <span>And I set the password text box with "secret_sauce"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.LoginSteps.clickOnLoginButton()">
+                <span>And I click on the login button</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.HomeSteps.verifyHomePageIsDisplayed()">
+                <span>Then The home pages should be displayed</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.SideMenuSteps.openSideMenu()">
+                <span>When I open the side menu</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.SideMenuSteps.selectSideMenuOption(java.lang.String)">
+                <span>And I select the "Logout" option from the side menu</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.LoginSteps.verifyLoginPageIsDisplayed()">
+                <span>Then The login page should be displayed</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDefinitions.LoginSteps.verifyNoProtectedContent()">
+                <span>And No protected content should be visible</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+</div>
+          </div>
+        </li>
       </ul>
     </div>
   </div>
@@ -915,14 +1854,112 @@
 </div>
 <div class="test-content-detail"><div class="detail-body"></div></div>
 </div></div>
-<div class="test-wrapper row view category-view attributes-view">
+<div class="test-wrapper row view exception-view attributes-view">
 <div class="test-list">
 <div class="test-list-tools">
-<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Category</span></a></li></ul>
+<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Exception</span></a></li></ul>
 <ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">1</span></a></li></ul>
 </div>
 <div class="test-list-wrapper scrollable">
 <ul class="test-list-item">
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-danger'>1</span>
+</span>
+<p class="name">org.opentest4j.AssertionFailedError</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>org.opentest4j.AssertionFailedError</h4>
+<span status="fail" class='badge log badge-danger'>1 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>00:40:55 a. m.</td>
+<td>
+<a href="#" class="linked" test-id='477' id='491'>Then The side menu should display the following options</a>
+<div class="">
+<span class="badge badge-default">Side menu navigation.The side menu shows all the navigation options.Then The side menu should display the following options</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="test-content scrollable">
+<div class="test-content-detail">
+<div class="detail-body"></div>
+</div>
+</div>
+</div><div class="test-wrapper row view category-view attributes-view">
+<div class="test-list">
+<div class="test-list-tools">
+<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Category</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">5</span></a></li></ul>
+</div>
+<div class="test-list-wrapper scrollable">
+<ul class="test-list-item">
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>2</span>
+</span>
+<p class="name">@purchaseSummary</p>
+<p class="duration text-sm">2 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@purchaseSummary</h4>
+<span status="pass" class='badge log pass-bg'>2 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>00:40:28 a. m.</td>
+<td>
+<a href="#" class="linked" test-id='412' id='413'>The purchase summary shows the right products and amounts</a>
+<div class="">
+<span class="badge badge-default">Purchase summary and cancellation.The purchase summary shows the right products and amounts</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>00:40:39 a. m.</td>
+<td>
+<a href="#" class="linked" test-id='412' id='445'>User can cancel the purchase from the checkout overview</a>
+<div class="">
+<span class="badge badge-default">Purchase summary and cancellation.User can cancel the purchase from the checkout overview</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
 <li class="test-item">
 <div class="test-detail">
 <span class="meta">
@@ -947,9 +1984,9 @@
 <tbody>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>23:16:52 p. m.</td>
+<td>00:40:13 a. m.</td>
 <td>
-<a href="#" class="linked" test-id='169' id='220'>Login into Sauce Demo with invalid credentials</a>
+<a href="#" class="linked" test-id='325' id='376'>Login into Sauce Demo with invalid credentials</a>
 <div class="">
 <span class="badge badge-default">Login Sauce Demo App.Login into Sauce Demo with invalid credentials</span>
 </div>
@@ -957,9 +1994,9 @@
 </tr>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>23:16:57 p. m.</td>
+<td>00:40:18 a. m.</td>
 <td>
-<a href="#" class="linked" test-id='169' id='232'>Login into Sauce Demo with invalid credentials</a>
+<a href="#" class="linked" test-id='325' id='388'>Login into Sauce Demo with invalid credentials</a>
 <div class="">
 <span class="badge badge-default">Login Sauce Demo App.Login into Sauce Demo with invalid credentials</span>
 </div>
@@ -967,11 +2004,201 @@
 </tr>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>23:17:02 p. m.</td>
+<td>00:40:23 a. m.</td>
 <td>
-<a href="#" class="linked" test-id='169' id='244'>Login into Sauce Demo with invalid credentials</a>
+<a href="#" class="linked" test-id='325' id='400'>Login into Sauce Demo with invalid credentials</a>
 <div class="">
 <span class="badge badge-default">Login Sauce Demo App.Login into Sauce Demo with invalid credentials</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>4</span>
+</span>
+<p class="name">@checkoutInformation</p>
+<p class="duration text-sm">4 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@checkoutInformation</h4>
+<span status="pass" class='badge log pass-bg'>4 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>00:38:21 a. m.</td>
+<td>
+<a href="#" class="linked" test-id='80' id='82'>The checkout cannot continue when the first name is empty</a>
+<div class="">
+<span class="badge badge-default">Checkout information validations.The checkout cannot continue when the first name is empty</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>00:38:32 a. m.</td>
+<td>
+<a href="#" class="linked" test-id='80' id='108'>The checkout cannot continue when the last name is empty</a>
+<div class="">
+<span class="badge badge-default">Checkout information validations.The checkout cannot continue when the last name is empty</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>00:38:41 a. m.</td>
+<td>
+<a href="#" class="linked" test-id='80' id='134'>The checkout cannot continue when the postal code is empty</a>
+<div class="">
+<span class="badge badge-default">Checkout information validations.The checkout cannot continue when the postal code is empty</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>00:38:51 a. m.</td>
+<td>
+<a href="#" class="linked" test-id='80' id='160'>The checkout cannot continue when all the fields are empty</a>
+<div class="">
+<span class="badge badge-default">Checkout information validations.The checkout cannot continue when all the fields are empty</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>2</span>
+<span class='badge log badge-danger'>1</span>
+</span>
+<p class="name">@sideMenu</p>
+<p class="duration text-sm">3 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@sideMenu</h4>
+<span status="pass" class='badge log pass-bg'>2 passed</span>
+<span status="fail" class='badge log badge-danger'>1 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>00:40:50 a. m.</td>
+<td>
+<a href="#" class="linked" test-id='477' id='478'>The side menu shows all the navigation options</a>
+<div class="">
+<span class="badge badge-default">Side menu navigation.The side menu shows all the navigation options</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>00:40:57 a. m.</td>
+<td>
+<a href="#" class="linked" test-id='477' id='494'>User can go back to the catalog with All Items</a>
+<div class="">
+<span class="badge badge-default">Side menu navigation.User can go back to the catalog with All Items</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>00:41:05 a. m.</td>
+<td>
+<a href="#" class="linked" test-id='477' id='516'>User can log out from the side menu</a>
+<div class="">
+<span class="badge badge-default">Side menu navigation.User can log out from the side menu</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>4</span>
+</span>
+<p class="name">@accessWithoutSession</p>
+<p class="duration text-sm">4 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@accessWithoutSession</h4>
+<span status="pass" class='badge log pass-bg'>4 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>00:37:47 a. m.</td>
+<td>
+<a href="#" class="linked" test-id='1' id='3'>A user without session cannot open /inventory.html</a>
+<div class="">
+<span class="badge badge-default">Access to protected pages without an active session.A user without session cannot open /inventory.html</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>00:37:56 a. m.</td>
+<td>
+<a href="#" class="linked" test-id='1' id='15'>A user without session cannot open /inventory-item.html</a>
+<div class="">
+<span class="badge badge-default">Access to protected pages without an active session.A user without session cannot open /inventory-item.html</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>00:38:01 a. m.</td>
+<td>
+<a href="#" class="linked" test-id='1' id='27'>A user without session cannot open /cart.html</a>
+<div class="">
+<span class="badge badge-default">Access to protected pages without an active session.A user without session cannot open /cart.html</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>00:38:06 a. m.</td>
+<td>
+<a href="#" class="linked" test-id='1' id='39'>A user without session cannot open /checkout-step-two.html</a>
+<div class="">
+<span class="badge badge-default">Access to protected pages without an active session.A user without session cannot open /checkout-step-two.html</span>
 </div>
 </td>
 </tr>
@@ -992,25 +2219,25 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>sept 14, 2026 11:15:30 p. m.</h3>
+<h3>sept 15, 2026 12:37:46 a. m.</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>sept 14, 2026 11:17:07 p. m.</h3>
+<h3>sept 15, 2026 12:41:13 a. m.</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-pass">Features Passed</p>
-<h3>3</h3>
+<h3>6</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-fail">Features Failed</p>
-<h3>0</h3>
+<h3>1</h3>
 </div></div>
 </div>
 </div>
@@ -1026,12 +2253,12 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'>
-<b>3</b> features passed
+<div><small data-tooltip='85%'>
+<b>6</b> features passed
 </small>
 </div>
 <div>
-<small data-tooltip='0%'><b>0</b> features failed,
+<small data-tooltip='14%'><b>1</b> features failed,
 <b>0</b> skipped, <b data-tooltip='0%'>0</b> others
 </small>
 </div>
@@ -1049,9 +2276,9 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'><b>16</b> scenarios passed</small></div>
+<div><small data-tooltip='96%'><b>28</b> scenarios passed</small></div>
 <div>
-<small data-tooltip='0%'><b>0</b> scenarios failed,
+<small data-tooltip='3%'><b>1</b> scenarios failed,
 <b>0</b> skipped, <b data-tooltip='%'>0</b> others
 </small>
 </div>
@@ -1069,9 +2296,9 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'><b>108</b> steps passed</small></div>
+<div><small data-tooltip='99%'><b>232</b> steps passed</small></div>
 <div>
-<small data-tooltip='0%'><b>0</b> steps failed,
+<small data-tooltip='0%'><b>1</b> steps failed,
 <b>0</b> skipped, <b data-tooltip='%'>0</b> others
 </small>
 </div>
@@ -1088,7 +2315,7 @@
 </div></div>
 <script>
 var timeline = {
-"Checkout a product":10.82,"Home Page tests":51.527,"Login Sauce Demo App":34.321
+"Access to protected pages without an active session":24.792,"Checkout a product":9.888,"Checkout information validations":38.781,"Home Page tests":53.277,"Login Sauce Demo App":34.013,"Purchase summary and cancellation":22.077,"Side menu navigation":23.524
 };
 </script>
 <div class="row">
@@ -1098,8 +2325,40 @@ var timeline = {
 <div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
 <thead><tr class="bg-gray"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th><th>Others</th><th>Passed %</th></tr></thead><tbody>
 <tr>
+<td>@purchaseSummary</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
 <td>@run</td>
 <td>3</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@checkoutInformation</td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>@sideMenu</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>66,667%</td>
+</tr>
+<tr>
+<td>@accessWithoutSession</td>
+<td>4</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
@@ -1114,19 +2373,19 @@ var timeline = {
 <script>
 var statusGroup = {
 parentCount: 5,
-passParent: 3,
-failParent: 0,
+passParent: 6,
+failParent: 1,
 warningParent: 0,
 skipParent: 0,
 childCount: 5,
-passChild: 16,
-failChild: 0,
+passChild: 28,
+failChild: 1,
 warningChild: 0,
 skipChild: 0,
 infoChild: 0,
 grandChildCount: 5,
-passGrandChild: 108,
-failGrandChild: 0,
+passGrandChild: 232,
+failGrandChild: 1,
 warningGrandChild: 0,
 skipGrandChild: 0,
 infoGrandChild: 0,

@@ -13,6 +13,7 @@ Feature: Side menu navigation
     When I open the side menu
     Then The side menu should display the following options
       | All Items       |
+      | Dynamic Catalog |
       | About           |
       | Logout          |
       | Reset App State |
